@@ -1,0 +1,13 @@
+<header>
+  <div class="post_content">
+    <%= form_with(model: @post,local:true,url: posts_path) do |form| %>
+    <h2><%= link_to "ツッタカター", posts_path %></h2>
+    <%= form.label :つぶやく内容： %>
+    <%= form.hidden_field :content %>
+    <%= @post.content %>
+    <%= form.submit "本当につぶやく"%>
+    <%= form.submit "やめる", name: 'back' %>
+    <% end %>
+  </div>
+</header>
+<%= render 'form' %>

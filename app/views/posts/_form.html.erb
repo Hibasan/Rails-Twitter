@@ -1,0 +1,56 @@
+<style>
+  header{
+    background-color:#CCFFFF;
+    position:fixed;
+    top: 0;
+    left:0;
+    height: 90px;
+    width:100%;
+    border-bottom: 2px solid;
+    padding:10px;
+    z-index: 1;
+  }
+  ul{
+    margin:0;
+  }
+  h2{
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+  h2 a{
+    text-decoration:none;
+  }
+  h3{
+    margin-top:5px;
+  }
+  .top {
+    margin-top:110px;
+    padding :10px;
+  }
+  .post_content p{
+    margin:0;
+  }
+  .content{
+    margin: 3px 0px;
+    padding :3px;
+    width:600px;
+    border:1px solid;
+  }
+  #error_explanation{
+    float:right;
+  }
+</style>
+
+<div class="top">
+  <% @posts.each do |post| %>
+  <div class="content">
+    <%= post.content %><br>
+    <%= link_to "編集", edit_post_path(post.id) %>
+    <%= link_to '削除', post_path(post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+  </div>
+  <% end %>
+</div>
+<footer>
+  <a href="#">上に戻る</a>
+  <h3><%= link_to "トップページへ", posts_path %></h3>
+</footer>
